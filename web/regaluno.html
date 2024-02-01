@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Registo de alunos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="post" action="guardar_alunos.jsp">
+            <p>
+                <label for="numero">Número:</label>
+                <input type="text" name="numero" id="numero">
+            </p>
+            <p>
+                <label for="nome">Nome do aluno:</label>
+                <input type="text" name="nome" id="nome" size="50" maxlength = "70">
+            </p>  
+            <p>
+                <label for="email">e-mail:</label>
+                <input type="email" name="email" id="email" size="70" maxlength = 70">
+            </p> 
+            <p>
+                <label for="datanasc">Data de nascimento:</label>
+                <input type="date" name="datanasc" id="datanasc">
+            </p>              
+            <p>
+                <input type="submit" value="Guardar">   
+            </p>
+        </form>    
+    </body>
+</html>
