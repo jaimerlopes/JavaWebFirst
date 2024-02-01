@@ -4,7 +4,7 @@
     Author     : Acer
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*,java.util.*"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -28,40 +28,40 @@ ResultSet resultSet = null;
 %>
 <!DOCTYPE html>
 <html>
-<body>
+    <body>
 
-<h1>Retrieve data from database in jsp</h1>
-<table border="1">
-<tr>
-<td>Numero</td>
-<td>Nome</td>
-<td>e-mail</td>
-<td>data_nascimento</td>
+        <h1>Retrieve data from database in jsp</h1>
+        <table border="1">
+            <tr>
+                <td>Numero</td>
+                <td>Nome</td>
+                <td>e-mail</td>
+                <td>data_nascimento</td>
 
-</tr>
-<%
-try{
-connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-statement=connection.createStatement();
-String sql ="select * from alunos";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>
-<tr>
-<td><%=resultSet.getString("numero") %></td>
-<td><%=resultSet.getString("nome") %></td>
-<td><%=resultSet.getString("e_mail") %></td>
-<td><%=resultSet.getString("datanasc") %></td>
+            </tr>
+            <%
+            try{
+            connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+            statement=connection.createStatement();
+            String sql ="select * from alunos";
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+            %>
+            <tr>
+                <td><%=resultSet.getString("numero") %></td>
+                <td><%=resultSet.getString("nome") %></td>
+                <td><%=resultSet.getString("e_mail") %></td>
+                <td><%=resultSet.getString("datanasc") %></td>
 
-</tr>
-<%
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
-</table> 
+            </tr>
+            <%
+            }
+            connection.close();
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+            %>
+        </table> 
 
-</body>
+    </body>
 </html>
