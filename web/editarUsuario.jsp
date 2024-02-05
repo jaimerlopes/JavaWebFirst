@@ -28,11 +28,7 @@
              numero = resultSet.getString("numero");
              nome = resultSet.getString("nome");
              email = resultSet.getString("e_mail");
-             out.println(email);
              java.sql.Date dataNasciment=resultSet.getDate("datanasc");
-      
-  
-
             // Exibir o formulário preenchido com os dados do aluno
 %>
 <!DOCTYPE html>
@@ -41,24 +37,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
+       <!-- Adicione o link para o CSS do Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Editar Usuário</h2>
-    <form action="salvarEdicao.jsp" method="post">
-        <label for="userId">ID do Usuário:</label>
-        <input type="text" id="userId" name="userId" value="<%=numero%>" readonly>
-        <br>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<%=nome%>" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<%=email%>" required>
-        <br>
-        <label for="email">Data Nascimento</label>
-        <input type="date" id="dataNasciment" name="dataNasciment" value="<%=dataNasciment%>" required>
-        <br>
-        <input type="submit" value="Salvar Edição">
-    </form>
+    <h2>Editar aluno</h2>
+    
+        <form action="salvarEdicao.jsp" method="post">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Numero </label>
+                <input type="text" class="form-control col-2" class="form-control" id="userId" name="userId" value="<%=numero%>" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="Nome:" class="form-label">Nome</label>
+                <input type="text" class="form-control col-2"  id="nome" name="nome" value="<%=nome%>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control col-2" id="email" name="email" value="<%=email%>" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="email">Data Nascimento</label>
+                <input type="date"  class="form-control col-2" id="dataNasciment" name="dataNasciment" value="<%=dataNasciment%>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>  
+        
+    <!-- Adicione o link para o JavaScript do Bootstrap -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
 <%
