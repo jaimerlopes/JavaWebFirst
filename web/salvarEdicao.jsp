@@ -11,13 +11,13 @@
 
     try {
 
-      // Carregar o driver JDBC
+        // Carregar o driver JDBC
         Class.forName("com.mysql.jdbc.Driver");
 
-        // Estabelecer a conexão com o banco de dados
+        // Estabelecer a ligação com o base de dados
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdalunos", "root", "root");
 
-        // Atualizar os dados do usuário no banco de dados
+        // Atualizar os dados do aluno naa base de dados
         String updateQuery = "UPDATE alunos SET nome = ?, e_mail = ?, datanasc=? WHERE numero = ?";
         PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
         updateStatement.setString(1, nome);
@@ -34,20 +34,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edição Salva</title>
+    <title>Edição guardada</title>
 </head>
 <body>
-    <h2>Edição Salva</h2>
-    <p>Os dados do usuário foram atualizados com sucesso.</p>
+    <h2>Edição guardada</h2>
+    <p>Os dados do aluno foram atualizados com sucesso.</p>
 </body>
 </html>
 <%
         } else {
-            // Nenhuma linha foi afetada (usuário não encontrado ou nenhum campo foi modificado)
+            // Nenhuma linha foi afetada (aluno não encontrado ou nenhum campo foi modificado)
             out.println("Nenhum dado foi modificado ou o usuário não foi encontrado.");
         }
 
-        // Fechar a conexão
+        // Fechar a ligação
         updateStatement.close();
         connection.close();
 

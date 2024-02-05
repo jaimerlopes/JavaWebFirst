@@ -5,30 +5,26 @@
 <%
     // Parâmetros do formulário
     String userId = request.getParameter("userId");
-            String nome = null;
-            String email = null;
-                                String numero = null;
+    String nome = null;
+    String email = null;
+    String numero = null;
 
-    // Conexão com o banco de dados
-//    String jdbcURL = "jdbc:mysql://localhost:330/bdalunos";
-//    String dbUser = "root";
-//    String dbPassword = "root";
 
     try {
         // Carregar o driver JDBC
         Class.forName("com.mysql.jdbc.Driver");
 
-        // Estabelecer a conexão com o banco de dados
+        // Estabelecer a ligação com o a base de dados
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdalunos", "root", "root");
 
-        // Consulta para obter os dados do usuário pelo ID
+        // Consulta para obter os dados do aluno pelo numero 
         String query = "SELECT * FROM alunos WHERE numero = ?";
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setString(1, userId);
         ResultSet resultSet = pstmt.executeQuery();
 
         if (resultSet.next()) {
-            // Dados do usuário
+            // Dados do uluno
              numero = resultSet.getString("numero");
              nome = resultSet.getString("nome");
              email = resultSet.getString("e_mail");
@@ -37,7 +33,7 @@
       
   
 
-            // Exibir o formulário preenchido com os dados do usuário
+            // Exibir o formulário preenchido com os dados do aluno
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +63,11 @@
 </html>
 <%
         } else {
-            // Usuário não encontrado
+            // aluno não encontrado
             out.println("Usuário não encontrado.");
         }
 
-        // Fechar a conexão
+        // Fechar a ligação
         resultSet.close();
         pstmt.close();
         connection.close();
