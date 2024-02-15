@@ -1,0 +1,74 @@
+/* styles.css */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+h1, h2 {
+    color: #007bff;
+}
+
+strong {
+    color: #28a745;
+}
+
+/* Adicionando estilo para a nova seção de serviços */
+.services-section {
+    margin-top: 30px;
+}
+
+/* Estilo para a imagem de fundo à direita */
+.background-image {
+    background-image: url('caminho/para/sua/imagem.jpg');
+    background-size: cover;
+    background-position: right center;
+    height: 400px; /* Ajuste conforme necessário */
+    border-radius: 10px;
+}
+
+/* Estilo para as três seções lado a lado */
+.services {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.service {
+    flex-basis: calc(33.33% - 20px);
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    text-align: center;
+}
+
+/* Adicionando estilo para a seção de curiosidades */
+.curiosities-section {
+    margin-top: 30px;
+}
+
+.curiosities {
+    display: flex;
+    justify-content: space-between;
+}
+
+.curiosity {
+    flex-basis: calc(33.33% - 20px);
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    text-align: center;
+}

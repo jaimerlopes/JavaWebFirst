@@ -29,8 +29,9 @@ ResultSet resultSet = null;
 <!DOCTYPE html>
 <html>
     <body>
-
-        <h1>Retrieve data from database in jsp</h1>
+ <!-- Content to be printed -->
+    <div id="contentToPrint">
+        <h1>Retrieve data from database in jsp - Alunos</h1>
         <table border="1">
             <tr>
                 <td>Numero</td>
@@ -62,6 +63,46 @@ ResultSet resultSet = null;
             }
             %>
         </table> 
+    </div>
+
+    <!-- Print Button -->
+    <button onclick="printContent()">Print Page</button>
+
+        <!-- Print Button -->
+    <button onclick="sendEmail()">Send email</button>
+    <!-- JavaScript to handle the print action -->
+    <script>
+        function printContent() {
+            var contentToPrint = document.getElementById('contentToPrint');
+            
+            // Open a new window and write the content to it
+            var printWindow = window.open('', '_blank');
+            printWindow.document.write('<html><head><title>Print</title></head><body>');
+            printWindow.document.write(contentToPrint.innerHTML);
+            printWindow.document.write('</body></html>');
+            
+            // Close the document stream to finish writing
+            printWindow.document.close();
+            
+            // Trigger the print dialog
+            printWindow.print();
+        }
+         function sendEmail() {
+            var contentToEmail = document.getElementById('contentToPrint').innerHTML;
+
+            // Use Ajax to send content to the servlet
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "teste1?emailContent=" + encodeURIComponent(contentToEmail), true);
+            xhr.send();
+
+            // You can handle the response from the servlet if needed
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText); // Log the response from the servlet
+                }
+            };
+        }
+    </script>
 
     </body>
 </html>
